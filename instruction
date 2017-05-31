@@ -1,0 +1,5 @@
+Run npm install to load dependecies
+
+npm run build
+
+npm start (will run on local host 3000)
