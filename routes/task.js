@@ -30,7 +30,7 @@ router.post('/', function (req, res, next){
 
 router.get('/', function (req, res){
 console.log("getting all tasks");
-Task.findAll(function (err, data){
+Task.find({}, function (err, data){
   if (err) {
       console.log("Couldnt Get deal Contact " , err);
       res.sendStatus(500);
