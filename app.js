@@ -4,10 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
+// ROUTES
 var appRoutes = require('./routes/app');
-
+var taskRoute = require('./routes/task');
 var app = express();
+mongoose.connect('localhost:27017/angular-todo');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,7 +31,9 @@ app.use(function(req, res, next) {
   next();
 });
 
+// ROUTES
 app.use('/', appRoutes);
+app.use('/task', taskRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
