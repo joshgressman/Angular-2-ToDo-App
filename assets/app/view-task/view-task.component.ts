@@ -23,4 +23,13 @@ ngOnInit(){
     (error) => console.log(error)
   );
 }
+
+onDelete(id: string){
+  this.taskService.deleteTask(id)
+  .subscribe(
+      result => console.log(result)
+     );
+     
+}
+
 }

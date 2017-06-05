@@ -29,4 +29,10 @@ export class TaskService {
           });
  }
 
+ deleteTask(id: string){
+   console.log('ID from task', id);
+   return this.http.delete('http://localhost:3000/task/' + id)
+     .map(res => res);
+ }
+
 }
