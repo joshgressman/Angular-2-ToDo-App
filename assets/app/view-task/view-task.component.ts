@@ -28,8 +28,16 @@ onDelete(id: string){
   this.taskService.deleteTask(id)
   .subscribe(
       result => console.log(result)
+     )
+     this.taskService.getTasks()
+     .subscribe(
+       (response) => {
+         this.tasks = response;
+         console.log("the tasks", this.tasks);
+       },
+       (error) => console.log(error)
      );
-     
+
 }
 
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { routing } from './app.routing';
 import { AppComponent } from "./app.component";
 import { AddTaskComponent } from './add-task/add-task.component';
 import { ViewTaskComponent } from './view-task/view-task.component';
@@ -16,7 +16,7 @@ import { HeaderComponent } from './header/header.component';
       ViewTaskComponent,
       HeaderComponent
     ],
-    imports: [BrowserModule, HttpModule, FormsModule, ReactiveFormsModule],
+    imports: [BrowserModule, HttpModule, FormsModule, ReactiveFormsModule, routing],
     providers: [TaskService],
     bootstrap: [AppComponent]
 })
