@@ -20,7 +20,9 @@ export class AddTaskComponent implements OnInit {
      this.myForm.value.name,
      this.myForm.value.description,
      this.myForm.value.due,
-     this.myForm.value.complete
+     this.myForm.value.complete,
+     this.myForm.value.time,
+     this.myForm.points = 0
    );
    console.log('task', task);
     this.taskService.addTask(task)
@@ -36,7 +38,9 @@ export class AddTaskComponent implements OnInit {
       name: new FormControl(null),
       description: new FormControl(null),
       due: new FormControl(null),
-      complete: new FormControl(false)
+      complete: new FormControl(false),
+      time: new FormControl(null),
+      points: new FormControl(0)
     });
   }
 

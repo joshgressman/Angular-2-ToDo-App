@@ -10,7 +10,9 @@ router.post('/', function (req, res, next){
     name: req.body.name,
     description: req.body.description,
     due: req.body.due,
-    complete: req.body.complete
+    complete: req.body.complete,
+    time: req.body.time,
+    points: req.body.points
   });
   task.save(function(err, result){
     if (err) {
@@ -30,7 +32,7 @@ router.post('/', function (req, res, next){
 
 router.get('/', function (req, res){
 console.log("getting all tasks");
-Task.find({}, function (err, data){
+Task.find({'complete': 'false'}, function (err, data){
   if (err) {
       console.log("Couldnt Get deal task " , err);
       res.sendStatus(500);

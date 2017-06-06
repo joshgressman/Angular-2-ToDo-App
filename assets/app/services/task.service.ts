@@ -35,4 +35,18 @@ export class TaskService {
      .map(res => res);
  }
 
+ getCompletedTasks(){
+   return this.http.get('http://localhost:3000/completed')
+   .map(res => res.json())
+   .catch((error: Response) => {
+    return Observable.throw(error.json());
+    });
+ }
+
+ updateToComplete(id: string,){
+   console.log('data in service', id);
+   return this.http.put('http://localhost:3000/completed/' + id)
+   .map(res => res);
+ }
+
 }

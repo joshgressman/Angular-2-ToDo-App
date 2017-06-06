@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2">
+     <h2>Dashboard of completed tasks</h2>
+     <p>Show completion points and awards</p>
+      <button class="btn-xs btn-primary" (click)="onViewStats()">View Stats</button>
+    </div>
+  </div>
+  <div class="row" *ngIf="viewStats === true">
+    <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2">
+     <h2>Display of results</h2>
+    </div>
+  </div>
+</div>

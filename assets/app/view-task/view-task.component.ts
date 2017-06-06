@@ -37,7 +37,25 @@ onDelete(id: string){
        },
        (error) => console.log(error)
      );
-
 }
+
+onConpleted(id: string){
+  console.log('data', id);
+  this.taskService.updateToComplete(id)
+  .subscribe(
+    (response) => {
+      console.log("update this", id);
+    },
+    (error) => console.log(error)
+     )
+     this.taskService.getTasks()
+     .subscribe(
+       (response) => {
+         this.tasks = response;
+         console.log("the tasks", this.tasks);
+       },
+       (error) => console.log(error)
+     );
+  }
 
 }
