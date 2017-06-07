@@ -7,8 +7,17 @@
     </div>
   </div>
   <div class="row" *ngIf="viewStats === true">
-    <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2">
-     <h2>Display of results</h2>
+    <div class="col-lg-4 col-md-4">
+      <h3>Points:</h3>
+      <p>{{totalPoints}}</p>
+    </div>
+    <div class="col-lg-4 col-md-4">
+       <h3>Completed Tasks</h3>
+       {{tasksCompleted }}
+    </div>
+    <div class="col-lg-4 col-md-4">
+       <h3>Time</h3>
+       {{time / 60}}
     </div>
   </div>
 </div>

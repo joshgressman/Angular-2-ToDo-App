@@ -39,9 +39,10 @@ onDelete(id: string){
      );
 }
 
-onConpleted(id: string){
+onConpleted(id: string, result){
   console.log('data', id);
-  this.taskService.updateToComplete(id)
+  var data = {points: result}
+  this.taskService.updateToComplete(id, data)
   .subscribe(
     (response) => {
       console.log("update this", id);

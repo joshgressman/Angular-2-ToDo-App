@@ -43,9 +43,9 @@ export class TaskService {
     });
  }
 
- updateToComplete(id: string,){
-   console.log('data in service', id);
-   return this.http.put('http://localhost:3000/completed/' + id)
+ updateToComplete(id: string, data: {}){
+   console.log('data in service', id, data);
+   return this.http.put('http://localhost:3000/completed/' + id, data)
    .map(res => res);
  }
 

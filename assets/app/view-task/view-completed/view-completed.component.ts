@@ -10,7 +10,9 @@ import { TaskService } from '../../services/task.service';
 export class ViewCompletedComponent{
 tasks: Task[] = [];
 viewStats = false;
-public totalPoints: number;
+totalPoints = 0;
+tasksCompleted = 0;
+time = 0;
 
 constructor(private taskService: TaskService){}
 
@@ -20,9 +22,10 @@ onViewStats(){
   .subscribe(
     (response) => {
       this.tasks = response;
-      console.log("the tasks", this.tasks);
+      this.tasksCompleted = this.tasks.length + 1;
       for(let i = 0; i < this.tasks.length; i++){
-        console.log('added points');
+        this.totalPoints = this.totalPoints + this.tasks[i].points;
+        this.time = this.time + this.tasks[i].time;
       }
     },
     (error) => console.log(error)

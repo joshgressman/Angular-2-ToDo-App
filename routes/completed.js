@@ -19,11 +19,10 @@ Task.find({'complete': 'true'}, function (err, data){
 //Completed task updateToComplete
 
 router.put('/:id', function(req, res){
-  console.log("req.body", req.body);
-  // var data = req.params.data;
+  console.log("req.body", req.body.points);
   var id = req.params.id;
-
-  Task.findOneAndUpdate({_id: id}, {$set: { complete: true, points: 20}}, function(err, doc){
+  var points = req.body.points;
+  Task.findOneAndUpdate({_id: id}, {$set: { complete: true, points: points}}, {new: true}, function(err, doc){
     if (err) {
         console.log("Couldnt update task " , err);
         res.sendStatus(500);
