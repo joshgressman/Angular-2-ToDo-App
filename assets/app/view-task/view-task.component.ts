@@ -38,7 +38,7 @@ onDelete(id: string){
        (error) => console.log(error)
      );
 }
-
+//Completes and adds points
 onConpleted(id: string, result){
   console.log('data', id);
   var data = {points: result}
