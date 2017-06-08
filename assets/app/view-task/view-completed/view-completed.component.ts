@@ -22,6 +22,7 @@ onViewStats(){
   .subscribe(
     (response) => {
       this.tasks = response;
+      console.log(this.tasks);
       this.tasksCompleted = this.tasks.length + 1;
       for(let i = 0; i < this.tasks.length; i++){
         this.totalPoints = this.totalPoints + this.tasks[i].points;

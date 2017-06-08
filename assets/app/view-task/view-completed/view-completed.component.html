@@ -20,4 +20,12 @@
        {{time / 60}}
     </div>
   </div>
+  <hr>
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let task of tasks">{{task.name}}</li>
+      </ul>
+    </div>
+  </div>
 </div>
