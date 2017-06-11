@@ -11,6 +11,9 @@ export class ViewTaskComponent implements OnInit {
 
 tasks: Task[] = [];
 
+//test for date ranges
+tasksThisMonth: Task[] =[];
+
 constructor(private taskService: TaskService){}
 
 ngOnInit(){
@@ -58,5 +61,17 @@ onConpleted(id: string, result){
        (error) => console.log(error)
      );
   }
+
+  //view taks in a date range
+  // onViewThisMonth(){
+  //   this.taskService.getTasksMonth()
+  //   .subscribe(
+  //     (response) => {
+  //       this.tasksThisMonth = response;
+  //       console.log("tasks Month",   this.tasksThisMonth);
+  //     },
+  //     (error) => console.log(error)
+  //   );
+  // }
 
 }

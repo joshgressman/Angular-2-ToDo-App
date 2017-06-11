@@ -9,6 +9,7 @@ import { ViewTaskComponent } from './view-task/view-task.component';
 import { TaskService } from './services/task.service';
 import { HeaderComponent } from './header/header.component';
 import { ViewCompletedComponent } from './view-task/view-completed/view-completed.component';
+import { ViewDateComponent } from './view-task/view-date/view-date.component';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import { ViewCompletedComponent } from './view-task/view-completed/view-complete
       AddTaskComponent,
       ViewTaskComponent,
       HeaderComponent,
-      ViewCompletedComponent
+      ViewCompletedComponent,
+      ViewDateComponent
     ],
     imports: [BrowserModule, HttpModule, FormsModule, ReactiveFormsModule, routing],
     providers: [TaskService],

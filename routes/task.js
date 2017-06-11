@@ -59,4 +59,32 @@ router.delete('/:id', function(req, res){
   });
 });
 
+router.get('/month', function (req, res){
+console.log("getting all tasks");
+Task.find({'complete': 'false', 'due': {'$gte': new Date("2017-06-01T00:00:00.000Z"), '$lte':new Date("2017-06-30T00:00:00.000Z") }}, function (err, data){
+  if (err) {
+      console.log("Couldnt Get deal task " , err);
+      res.sendStatus(500);
+    } else {
+      console.log('task found');
+      res.send(data);
+    }
+});
+});
+
+router.get('/dates/:start/:end', function (req, res){
+console.log("DATA", req.params.start);
+var start = req.params.start;
+var end = req.params.end;
+Task.find({'complete': 'false', 'due': {'$gte': new Date(start), '$lte':new Date(end) }}, function (err, data){
+  if (err) {
+      console.log("Couldnt Get tasks " , err);
+      res.sendStatus(500);
+    } else {
+      console.log('task by dates found', data);
+      res.send(data);
+    }
+});
+});
+
 module.exports = router;

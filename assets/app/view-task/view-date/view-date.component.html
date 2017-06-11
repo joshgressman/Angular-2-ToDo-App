@@ -1,0 +1,32 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+       <div class="form-group">
+         <label for="start-date">Start Date</label>
+         <input type="date" id="start-date" formControlName="start" required>
+       </div>
+       <div class="form-group">
+         <label for="end-date">End Date</label>
+         <input type="date" id="description" formControlName="end" required>
+       </div>
+       <button class="btn btn-primary" type="submit">Submit</button>
+     </form>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-2">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let task of tasks; let i = index">
+            <h4>Task {{i+1}}: {{task.name}} &nbsp; Due: {{task.due | date:'fullDate'}} &nbsp; Points on Completion: {{task.time}} </h4>
+             <p>Description: <em>{{task.description}}</em></p>
+            <br>
+            <button class="btn-xs btn-primary" (click)="onConpleted(task._id, task.points = task.time)">Complete</button> <button class="btn-xs btn-danger" (click)="onDelete(task._id)">Delete</button>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>

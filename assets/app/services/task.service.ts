@@ -49,4 +49,20 @@ export class TaskService {
    .map(res => res);
  }
 
+ getTasksMonth(){
+   return this.http.get('http://localhost:3000/task/month')
+   .map(res => res.json())
+   .catch((error: Response) => {
+              return Observable.throw(error.json());
+          });
+ }
+
+ getTasksDate(dates: {start: string, end: string}){
+   console.log("requesting dates", dates.start, dates.end);
+   var start = dates.start;
+   var end = dates.end;
+   return this.http.get('http://localhost:3000/task/dates/' + start + '/' + end)
+   .map(res => res.json());
+ }
+
 }
