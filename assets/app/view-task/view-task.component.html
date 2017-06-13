@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2">
-      <h2>Current Tasks</h2>
+    <div class="col-lg-6 col-md-6 border">
+      <h3>Incomplete Tasks</h3>
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let task of tasks; let i = index">
           <h4>Task {{i+1}}: {{task.name}} &nbsp; Due: {{task.due | date:'fullDate'}} &nbsp; Points on Completion: {{task.time}} </h4>
@@ -11,11 +11,9 @@
         </li>
       </ul>
     </div>
-
+    <div class="col-lg-6 col-md-6">
+     <app-view-completed></app-view-completed>
+    </div>
   </div>
   <app-view-date></app-view-date>
   <!-- Delete this after date query -->
-
-
-
-<app-view-completed></app-view-completed>
