@@ -10,6 +10,8 @@ var mongoose = require('mongoose');
 var appRoutes = require('./routes/app');
 var taskRoute = require('./routes/task');
 var completedRoute = require('./routes/completed');
+var userRoute = require('./routes/user');
+
 var app = express();
 mongoose.connect('localhost:27017/angular-todo');
 
@@ -36,6 +38,7 @@ app.use(function(req, res, next) {
 app.use('/', appRoutes);
 app.use('/task', taskRoute);
 app.use('/completed', completedRoute);
+app.use('/user', userRoute);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   res.render('index');

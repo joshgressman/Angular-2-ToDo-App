@@ -4,13 +4,16 @@ var Schema = mongoose.Schema;
 
 // var Task = require('./task');
 
+var User = require('./user');
+
 var schema = new Schema({
 name:        {type: String, required: true},
 description: {type: String, required: true},
 due:         {type: Date, required: true},
 complete:    {type: Boolean, default: false},
 time:        {type: Number, requird: true},
-points:      {type: Number, default: 0}
+points:      {type: Number, default: 0},
+user: {type: Schema.Types.ObjectId, ref: 'User'}
 });
 
 module.exports = mongoose.model('Task', schema);
