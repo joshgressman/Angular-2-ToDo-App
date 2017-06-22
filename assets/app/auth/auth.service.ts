@@ -37,7 +37,12 @@ export class AuthService {
 
  //*** USER SIGNIN END ***///
 
+//**** LOGOUT USER ****//
 
+//*** END LOGOUT *** //
+logout(){
+  localStorage.clear();
+}
 //*** CHECKS FOR TOKEN FOR THE NAV TABS
 
 isLoggedIn(){
