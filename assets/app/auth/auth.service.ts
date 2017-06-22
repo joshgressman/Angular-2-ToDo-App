@@ -24,4 +24,24 @@ export class AuthService {
 
  //** END USER SIGN UP
 
+ //*** USER SIGNIN *** ///
+ signin(user: User){
+   const body = JSON.stringify(user);
+   const headers = new Headers({'Content-Type': 'application/json'});
+   return this.http.post('http://localhost:3000/user/signin', body, {headers: headers})
+   .map((response: Response) => response.json())
+   .catch((error: Response) => {
+                return Observable.throw(error.json());
+            });
+ }
+
+ //*** USER SIGNIN END ***///
+
+
+//*** CHECKS FOR TOKEN FOR THE NAV TABS
+
+isLoggedIn(){
+  return localStorage.getItem('token') !== null;
+}
+
 }
