@@ -18,7 +18,18 @@ export class SignupComponent implements OnInit {
   constructor(private authService: AuthService){}
 
   onSubmit(){
-    
+   const user = new User(
+     this.myForm.value.username,
+     this.myForm.value.password,
+     this.myForm.value.email
+   );
+   this.authService.signup(user)
+     .subscribe(
+       data => console.log('data', data),
+       error => console.log('error', error)
+     );
+     this.myForm.reset();
+
   }
 
  //Initalive the for group upon load and create custom validation
