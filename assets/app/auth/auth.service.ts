@@ -41,7 +41,7 @@ export class AuthService {
 
 //*** END LOGOUT *** //
 logout(){
-  localStorage.clear();
+  localStorage.clear();c
 }
 //*** CHECKS FOR TOKEN FOR THE NAV TABS
 

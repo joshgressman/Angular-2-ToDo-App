@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+body {
+  background-color: black;
+  color: white;
+}
+
+input {
+  color: gray;
+}

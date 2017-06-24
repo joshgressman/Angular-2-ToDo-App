@@ -1,3 +1,4 @@
+<div class="viewTask">
 <div class="container">
   <div class="row">
     <div class="col-lg-6 col-md-6 border">
@@ -7,7 +8,7 @@
           <h4>Task {{i+1}}: {{task.name}} &nbsp; Due: {{task.due | date:'fullDate'}} &nbsp; Points on Completion: {{task.time}} </h4>
            <p>Description: <em>{{task.description}}</em></p>
           <br>
-          <button class="btn-xs btn-primary" (click)="onConpleted(task._id, task.points = task.time)">Complete</button> <button class="btn-xs btn-danger" (click)="onDelete(task._id)">Delete</button>
+          <button class="btn-xs btn-success" (click)="onConpleted(task._id, task.points = task.time)">Complete</button> <button class="btn-xs btn-danger" (click)="onDelete(task._id)">Delete</button>
         </li>
       </ul>
     </div>
@@ -15,5 +16,6 @@
      <app-view-completed></app-view-completed>
     </div>
   </div>
+</div>
   <!-- <app-view-date></app-view-date> -->
   <!-- Delete this after date query -->

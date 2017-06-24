@@ -6,3 +6,7 @@ li{
 .border {
   border-right: 1px solid lightgray;
 }
+
+.viewTask h4,p {
+  color: gray;
+}
