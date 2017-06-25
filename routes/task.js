@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var jwt = require('jsonwebtoken');
 
 var User = require('../schema/user');
 var Task = require('../schema/task');
 
-// ADD NEW TASK
+// ADD NEW TASK => Redo the post to take in the token
 router.post('/', function (req, res, next){
   console.log(req.body);
   var task = new Task({
