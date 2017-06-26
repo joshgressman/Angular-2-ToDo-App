@@ -30,6 +30,42 @@ router.post('/', function (req, res, next){
   });
 });
 
+// router.post('/', function(req, res, next) {
+//   var decoded = jwt.decode(req.query.token);
+//   User.findById(decoded.user._id, function(err, user){
+//     if(err){
+//       return res.status(500).json({
+//                 title: 'An error occurred',
+//                 error: err
+//       });
+//     }
+//     var task = new Task ({
+//       name: req.body.name,
+//       description: req.body.description,
+//       due: req.body.due,
+//       complete: req.body.complete,
+//       time: req.body.time,
+//       points: req.body.points,
+//       user: user
+//     });
+//
+//     task.save(function(err, result){
+//       if (err) {
+//               return res.status(500).json({
+//                   title: 'An error occurred',
+//                   error: err
+//               });
+//           }
+//         user.tasks.push(result);
+//         user.save();
+//         res.status(201).json({
+//           message: 'Saved task',
+//               obj: result
+//         });
+//     });
+//   });
+// });
+
 // GET ALL TASKS
 
 router.get('/', function (req, res){
