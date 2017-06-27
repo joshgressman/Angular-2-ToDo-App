@@ -16,4 +16,11 @@ points:      {type: Number, default: 0},
 user: {type: Schema.Types.ObjectId, ref: 'User'}
 });
 
+schema.post('remove', function (task) {
+    User.findById(task.user, function (err, user) {
+        user.tasks.pull(task);
+        user.save();
+    });
+});
+
 module.exports = mongoose.model('Task', schema);

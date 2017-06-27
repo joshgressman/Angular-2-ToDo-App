@@ -11,15 +11,30 @@ export class TaskService {
 
   constructor(private http: Http){}
 
+ // addTask(task: Task){
+ //   const body = JSON.stringify(task);
+ //   const headers = new Headers({'Content-Type': 'application/json'});
+ //   return this.http.post('http://localhost:3000/task', body, {headers: headers})
+ //   .map((response: Response) => response.json())
+ //   .catch((error: Response) => {
+ //              return Observable.throw(error.json());
+ //          });
+ // }
+
  addTask(task: Task){
    const body = JSON.stringify(task);
    const headers = new Headers({'Content-Type': 'application/json'});
-   return this.http.post('http://localhost:3000/task', body, {headers: headers})
+   const token = localStorage.getItem('token')
+   ? '?token=' + localStorage.getItem('token')
+   : '';
+   return this.http.post('http://localhost:3000/task' + token, body, {headers: headers})
    .map((response: Response) => response.json())
    .catch((error: Response) => {
               return Observable.throw(error.json());
           });
  }
+
+
 
  getTasks(){
    return this.http.get('http://localhost:3000/task')
@@ -31,7 +46,10 @@ export class TaskService {
 
  deleteTask(id: string){
    console.log('ID from task', id);
-   return this.http.delete('http://localhost:3000/task/' + id)
+   const token = localStorage.getItem('token')
+   ? '?token=' + localStorage.getItem('token')
+   : '';
+   return this.http.delete('http://localhost:3000/task/' + id + token)
      .map(res => res);
  }
 
