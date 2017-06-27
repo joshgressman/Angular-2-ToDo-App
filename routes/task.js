@@ -5,6 +5,21 @@ var jwt = require('jsonwebtoken');
 var User = require('../schema/user');
 var Task = require('../schema/task');
 
+//AUTH router.use() method is reached on each request used for AUTH
+//Checks for a valid token and protects the routes
+router.use('/', function (req, res, next){
+  jwt.verify(req.query.token, 'secret', function(err, decoded){
+    if (err) {
+            return res.status(401).json({
+                title: 'Not Authenticated',
+                error: err
+            });
+        }
+        next();
+  })
+});
+
+
 // ADD NEW TASK => Redo the post to take in the token
 router.post('/', function (req, res, next){
   console.log(req.body);

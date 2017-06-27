@@ -51,8 +51,9 @@ router.post('/signin', function(req, res, next){
                   error: {message: 'Invalid login credentials'}
               });
         }
+    //jwt.sign() creates a new token, payload is the user info being passed secret is for varifivation
      var token = jwt.sign({user: user}, 'secret', {expiresIn: 7200});
-     res.status(200).json({
+     res.status(200).json({ //send token to the client
        message: 'Successfully logged in',
        token: token,
        userId: user._id

@@ -33,16 +33,13 @@ export class AuthService {
    .catch((error: Response) => {
                 return Observable.throw(error.json());
             });
- }
-
- //*** USER SIGNIN END ***///
+ } //*** USER SIGNIN END ***///
 
 //**** LOGOUT USER ****//
-
-//*** END LOGOUT *** //
 logout(){
-  localStorage.clear();c
-}
+  localStorage.clear();
+} //*** END LOGOUT *** //
+
 //*** CHECKS FOR TOKEN FOR THE NAV TABS
 
 isLoggedIn(){
