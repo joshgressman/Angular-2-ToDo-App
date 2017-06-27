@@ -37,7 +37,10 @@ export class TaskService {
 
 
  getTasks(){
-   return this.http.get('http://localhost:3000/task')
+   const token = localStorage.getItem('token')
+   ? '?token=' + localStorage.getItem('token')
+   : '';
+   return this.http.get('http://localhost:3000/task' + token)
    .map(res => res.json())
    .catch((error: Response) => {
               return Observable.throw(error.json());

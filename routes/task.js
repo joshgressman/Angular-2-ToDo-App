@@ -5,21 +5,6 @@ var jwt = require('jsonwebtoken');
 var User = require('../schema/user');
 var Task = require('../schema/task');
 
-// GET ALL TASKS
-
-router.get('/', function (req, res){
-console.log("getting all tasks");
-Task.find({'complete': 'false'}, function (err, data){
-  if (err) {
-      console.log("Couldnt Get deal task " , err);
-      res.sendStatus(500);
-    } else {
-      console.log('task found');
-      res.send(data);
-    }
-});
-});
-
 //AUTH router.use() method is reached on each request used for AUTH
 //Checks for a valid token and protects the routes
 //Token needs to be passed from the service, in this case task.service
@@ -34,6 +19,25 @@ router.use('/', function (req, res, next){
         next();
   })
 });
+
+
+// GET ALL TASKS
+
+router.get('/', function (req, res){
+console.log("getting all tasks");
+var decoded = jwt.decode(req.query.token);
+console.log('req params id', decoded.user._id );
+Task.find({'complete': 'false', user: decoded.user._id  }, function (err, data){
+  if (err) {
+      console.log("Couldnt Get deal task " , err);
+      res.sendStatus(500);
+    } else {
+      console.log('task found');
+      res.send(data);
+    }
+});
+});
+
 
 
 // ADD NEW TASK => Redo the post to take in the token
