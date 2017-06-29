@@ -2,8 +2,8 @@
             <nav class="col-md-6 col-md-offset-4">
                 <ul class="nav nav-pills">
                     <li routerLinkActive="active"><a [routerLink]="['/auth']">User Portal</a></li>
-                    <li routerLinkActive="active"><a [routerLink]="['/view']">View Tasks</a></li>
-                    <li routerLinkActive="active"><a [routerLink]="['/add']">Add Tasks</a></li>
+                    <li routerLinkActive="active" *ngIf="isLoggedIn()"><a [routerLink]="['/view']">View Tasks</a></li>
+                    <li routerLinkActive="active" *ngIf="isLoggedIn()"><a [routerLink]="['/add']">Add Tasks</a></li>
                 </ul>
             </nav>
 </header>
