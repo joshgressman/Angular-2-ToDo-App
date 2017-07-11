@@ -1,9 +1,22 @@
  <header class="row">
-            <nav class="col-md-6 col-md-offset-4">
+            <nav class="col-md-6 col-lg-6">
                 <ul class="nav nav-pills">
                     <li routerLinkActive="active"><a [routerLink]="['/auth']">User Portal</a></li>
                     <li routerLinkActive="active" *ngIf="isLoggedIn()"><a [routerLink]="['/view']">View Tasks</a></li>
                     <li routerLinkActive="active" *ngIf="isLoggedIn()"><a [routerLink]="['/add']">Add Tasks</a></li>
                 </ul>
             </nav>
+            <div class="col-md-6 col-lg-6">
+             <div class="row">
+               <div class="col-sm-2 col-xs-2">
+                 <button type="button"class="btn btn-primary btn-xs" (click)="onViewStats()">View Stats</button>
+               </div>
+               <div class="col-sm-2 col-xs-2" *ngIf="viewStats === true">
+                 <p>Points: {{totalPoints}}</p>
+               </div>
+               <div class="col-sm-3 col-xs-3" *ngIf="viewStats === true">
+                 <p>Completed Tasks: {{tasksCompleted }}</p>
+               </div>
+             </div>
+            </div>
 </header>

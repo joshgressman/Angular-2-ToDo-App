@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl} from "@angular/forms";
 import { TaskService } from '../../services/task.service';
 import { Task } from '../../task.model';
-;
+
 @Component({
   selector: 'app-view-date',
   templateUrl: './view-date.component.html'
