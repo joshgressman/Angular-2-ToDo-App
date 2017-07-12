@@ -32,7 +32,7 @@ import { TaskService } from '../services/task.service';
 export class ViewTaskComponent implements OnInit {
 
 tasks: Task[] = [];
-
+overdue = false;
 //test for date ranges
 tasksThisMonth: Task[] =[];
 
@@ -44,6 +44,7 @@ ngOnInit(){
     (response) => {
       this.tasks = response;
       console.log("the tasks", this.tasks);
+
     },
     (error) => console.log(error)
   );
@@ -82,6 +83,23 @@ onConpleted(id: string, result){
        },
        (error) => console.log(error)
      );
+  }
+
+  isOverdue(index: number){
+    let currentDate = new Date();
+    let dueDate = this.tasks[index].due;
+    let objDate = new Date(dueDate);
+    let isOverdue = false;
+    if(currentDate > objDate){
+      isOverdue = true;
+      console.log('dueDate', objDate);
+      return isOverdue;
+    } else {
+      // console.log(objDate)
+      // console.log(typeof currentDate);
+      return false;
+
+    }
   }
 
   //view taks in a date range

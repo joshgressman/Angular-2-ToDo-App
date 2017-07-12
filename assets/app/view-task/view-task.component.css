@@ -3,7 +3,12 @@ li{
   margin-bottom: 5px;
 }
 
-
+.error-alert{
+  padding: 2px 0 2px 0;
+  text-align: center;
+  background-color: red;
+  color: white;
+}
 
 .viewTask h4,p {
   color: gray;
